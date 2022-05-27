@@ -1,7 +1,7 @@
 <?php
 
-const MAX_WORD_LENGTH     = 2;
-const FILTER_WORDS_LENGTH = 2;
+const MAX_WORD_LENGTH     = 5;
+const FILTER_WORDS_LENGTH = 3;
 
 function generateText(int $rowsCount): string
 {
@@ -67,7 +67,7 @@ function toChart(array $obj, int $total): array
     ];
 }
 
-$text         = generateText(1000);
+$text         = @file_get_contents('text') ?: generateText(1000);
 $topUsedWords = topUsed(filterWords(toWords($text)), 10);
 
 echo json_encode($topUsedWords);
