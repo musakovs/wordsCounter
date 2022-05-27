@@ -62,8 +62,9 @@ function topUsed(array $words, int $limit): array
 function toChart(array $obj, int $total): array
 {
     return [
-        'y'     => number_format($obj['count'] / $total * 100, 2),
-        'label' => $obj['word']
+        'y'          => (int)($obj['count'] / $total * 100),
+        'label'      => number_format($obj['count'] / $total * 100, 2),
+        'indexLabel' => $obj['word']
     ];
 }
 
